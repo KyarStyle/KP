@@ -124,3 +124,4 @@ const mostrarPromos = (e) => {
     platillos.forEach((platillo) => contenedorPlatillos.appendChild(platillo));
     contenedorPlatillos.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll automático
 };
+
