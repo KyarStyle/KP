@@ -10,6 +10,10 @@ const btnPostres = document.querySelector('.postres');
 const btnPromo = document.querySelector('.promo'); // Botón de Promos Navideñas
 const contenedorPlatillos = document.querySelector('.platillos');
 
+
+// Arreglo global para almacenar los platillos
+let platillosArreglo = [];
+
 // Eventos principales
 document.addEventListener('DOMContentLoaded', () => {
     configurarEventos();
@@ -80,7 +84,7 @@ imagenes.forEach((imagen) => {
 // Cargar y organizar los platillos
 const cargarPlatillos = () => {
     const platillos = document.querySelectorAll('.platillo');
-    const platillosArreglo = Array.from(platillos);
+    platillosArreglo = Array.from(platillos); // Guarda todos los platillos en memoria
 
     const ensaladas = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'ensalada');
     const pastas = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'pasta');
@@ -90,6 +94,7 @@ const cargarPlatillos = () => {
 
     configurarBotones({ ensaladas, pastas, pizzas, postres, promos, todos: platillosArreglo });
 };
+
 
 // Configurar botones de filtro
 const configurarBotones = ({ ensaladas, pastas, pizzas, postres, promos, todos }) => {
@@ -119,9 +124,9 @@ const limpiarHtml = (contenedor) => {
 // Mostrar promos navideñas (función separada para claridad)
 const mostrarPromos = (e) => {
     e.preventDefault(); // Evitar comportamiento por defecto en algunos navegadores
-    const platillos = document.querySelectorAll('.platillo[data-platillo="promo"]');
+    const promos = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'promo');
     limpiarHtml(contenedorPlatillos);
-    platillos.forEach((platillo) => contenedorPlatillos.appendChild(platillo));
+    promos.forEach((platillo) => contenedorPlatillos.appendChild(platillo));
     contenedorPlatillos.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll automático
 };
 
