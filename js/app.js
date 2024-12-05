@@ -84,7 +84,7 @@ imagenes.forEach((imagen) => {
 // Cargar y organizar los platillos
 const cargarPlatillos = () => {
     const platillos = document.querySelectorAll('.platillo');
-    platillosArreglo = Array.from(platillos); // Guarda todos los platillos en memoria
+    platillosArreglo = Array.from(platillos); // Actualiza el arreglo global
 
     const ensaladas = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'ensalada');
     const pastas = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'pasta');
@@ -96,23 +96,27 @@ const cargarPlatillos = () => {
 };
 
 
+
 // Configurar botones de filtro
 const configurarBotones = ({ ensaladas, pastas, pizzas, postres, promos, todos }) => {
     btnEnsaladas.addEventListener('click', () => mostrarPlatillos(ensaladas));
     btnPasta.addEventListener('click', () => mostrarPlatillos(pastas));
     btnPizza.addEventListener('click', () => mostrarPlatillos(pizzas));
     btnPostres.addEventListener('click', () => mostrarPlatillos(postres));
-    btnPromo.addEventListener('click', () => mostrarPlatillos(promos));
+    btnPromo.addEventListener('click', () => mostrarPlatillos(promos)); // Usa directamente la función genérica
     btnTodos.addEventListener('click', () => mostrarPlatillos(todos));
 };
 
+
 // Mostrar platillos filtrados
 const mostrarPlatillos = (platillos) => {
-    limpiarHtml(contenedorPlatillos);
-    platillos.forEach((platillo) => contenedorPlatillos.appendChild(platillo));
+    limpiarHtml(contenedorPlatillos); // Limpia el contenedor
+    platillos.forEach((platillo) => contenedorPlatillos.appendChild(platillo)); // Muestra los nuevos platillos
+
     // Asegurarse de que el contenedor esté visible en dispositivos móviles
     contenedorPlatillos.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
+
 
 // Limpiar el contenedor de platillos
 const limpiarHtml = (contenedor) => {
@@ -123,10 +127,13 @@ const limpiarHtml = (contenedor) => {
 
 // Mostrar promos navideñas (función separada para claridad)
 const mostrarPromos = (e) => {
-    e.preventDefault(); // Evitar comportamiento por defecto en algunos navegadores
+    e.preventDefault(); // Previene comportamientos no deseados
+
+    // Filtrar las promos directamente del arreglo global
     const promos = platillosArreglo.filter((platillo) => platillo.getAttribute('data-platillo') === 'promo');
-    limpiarHtml(contenedorPlatillos);
-    promos.forEach((platillo) => contenedorPlatillos.appendChild(platillo));
+    
+    limpiarHtml(contenedorPlatillos); // Limpia el contenedor
+    promos.forEach((platillo) => contenedorPlatillos.appendChild(platillo)); // Muestra las promos
     contenedorPlatillos.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll automático
 };
 
