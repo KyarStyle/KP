@@ -1,0 +1,708 @@
+:root{
+    --verde:#f89ce2;
+    --blanco:#eee7e7;
+    --rojo:#e18796;
+    --oscuro:#1e1a1a;
+    --titulos:'Arima Madurai',cursive;
+    --parrafos:'Mulish', sans-serif;
+}
+html{
+    box-sizing: border-box;
+    /*1rem = 10px*/
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    overflow-x: hidden;
+}
+
+*,*::after, *::before{
+    box-sizing: inherit;
+}
+/*globales*/
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}
+h1,h2{
+    font-family: var(--titulos);
+}
+h3, p, a{
+    font-family: var(--parrafos);
+}
+
+img{
+    max-width: 100%;
+}
+.verde{
+    color: var(--verde);
+}
+.rojo{
+    color: var(--rojo);
+}
+.ocultar{
+    display: none;
+}
+.btn-cerrar{
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--blanco);
+    position: absolute;
+    top: 0;
+    right: 50px;
+    user-select: none;
+
+}
+.pantalla-completa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(86, 80, 84, 0.5);
+    z-index: 4;
+}
+
+@keyframes desplazamiento {
+    0%{
+        transform: translateX(100%);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+.btn-cerrar:hover{
+    cursor: pointer;
+}
+
+.btn{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding: 1rem 5rem;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+
+@media(min-width: 768px) {
+    .btn{
+        font-size: 2.2rem;
+    }
+}
+.bordes{
+    border: 3px solid var(--blanco);
+}
+@media(min-width: 768px) {
+    .bordes{
+        border: 4px solid var(--blanco);
+    }
+}
+
+.bordes:hover{
+    color: var(--verde);
+    background-color: var(--blanco);
+}
+.btn-rojo{
+    background-color: var(--rojo);
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.btn-verde{
+    background-color: var(--verde);
+    border: none;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: var(--parrafos);
+}
+.btn-verde:hover{
+    background-color: var(--rojo);
+}
+/*encabezado*/
+.contenedor-navegacion{
+    background-color: var(--oscuro);
+    position: relative;
+    z-index: 5;
+  
+}
+.contenido-navegacion{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+   
+}
+.logo h2, .navegacion a {
+  color: var(--blanco);  
+}
+.logo h2{
+    font-size: 3rem;
+}
+.navegacion a{
+    text-decoration: none;
+    font-size: 2.2rem;
+    padding: 1.5rem;
+    padding-left: 4rem;
+    display: block;
+    transition: color .3s ease-in-out;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .navegacion a{
+        text-align: left;
+    }
+}
+
+
+.navegacion a:nth-child(even):hover{
+    color: var(--rojo);
+}
+.navegacion a:nth-child(odd):hover{
+    color: var(--verde);
+}
+.navegacion a:first-of-type{
+    margin-top: 5rem;
+}
+.navegacion{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 40rem;
+    padding: 3rem 4rem;
+    background-color: var(--oscuro);
+    animation: desplazamiento .5s ease-in-out;
+}
+
+.hamburguesa:hover{
+    cursor: pointer;
+}
+
+.hamburguesa span{
+    background-color: var(--blanco);
+    display: block;
+    width: 5rem;
+    height: .5rem;
+    margin-bottom: .5rem;
+}
+
+/*video*/
+.contenido-header{
+    position: relative;
+}
+
+.contenido-header::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+}
+
+.texto-encabezado{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.texto-encabezado h2{
+    color: var(--blanco);
+    font-size: 4rem;
+}
+
+@media(min-width: 768px) {
+    .texto-encabezado h2{
+        font-size: 8rem;
+    }
+}
+
+video{
+    width: 100%;
+    height: 100%;
+}
+
+/*sobre nosotros*/
+.contenedor-nosotros{
+    
+    padding-top: 5rem;
+}
+@media(min-width: 768px) {
+    .contenedor-nosotros{
+        display: flex;
+         justify-content: space-between;
+    }   
+}
+.texto-nosotros, .imagenes-nosotros{
+   
+    flex: 0 0 calc(50% - 1rem) ;
+}
+.texto-nosotros .bienvenida{
+    font-size: 4rem;
+    color: var(--verde);
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .texto-nosotros .bienvenida{
+        text-align: left;
+    }
+}
+.texto-nosotros h1{
+    font-size: 5rem;
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .texto-nosotros h1{
+        text-align: left;
+    }
+}
+.texto-nosotros p{
+    font-size: 2rem;
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .texto-nosotros p{
+        text-align: left;
+    }
+}
+.imagenes-nosotros{
+    display: flex;
+    justify-content: space-between;
+}
+.imagenes-nosotros img{
+    border-radius: 5px;
+}
+.imagen1, .imagenes2{
+    flex: 0 0 calc(50% - 1rem);
+}
+.imagenes2 img{
+    margin-bottom: 1rem;
+}
+.menu{
+    padding-top: 4rem;
+}
+/*platillos*/
+.texto-platillos{
+    text-align: center;
+    font-size: 5rem;
+}
+
+.botones-platillos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.botones-platillos button{
+    flex: 0 0 calc(50% - 1rem);
+    padding: 1rem 3rem;
+}
+@media(min-width: 768px) {
+    .botones-platillos{
+        display: inline-block;
+    }
+    .botones-platillos button{
+        flex: unset;
+    }
+}
+@media(min-width: 768px) {
+    .platillos{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap:wrap;
+    }
+}
+.platillo{
+    flex: 0 0 calc(33.3% - 1rem);
+    border: 1px solid #e1e1e1;
+    padding: 2rem;
+    border-radius: 5px;
+}
+.platillo h2{
+    text-align: center;
+}
+.platillo p{
+    font-size: 1.8rem;
+}
+.precio{
+    display: flex;
+    justify-content: space-between;
+}
+.precio p{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.precio button{
+    padding:1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    height: 3.8rem;
+}
+.separador{
+    background-image: url('https://erestrendy.com/wp-content/uploads/2024/05/Rutina.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 2;
+}
+.separador::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: -1;
+}
+
+.contenido-separador{
+    padding: 5rem;
+}
+
+.contenido-separador h2{
+    font-size: 4rem;
+    color: var(--blanco);
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .contenido-separador h2{
+        text-align: left;
+        font-size: 5rem;
+        color: var(--blanco);
+    }
+}
+.contenido-separador p{
+    color: var(--blanco);
+    font-size: 3rem;
+    text-align: center;
+}
+@media(min-width: 768px) {
+    .contenido-separador p{
+        text-align: left;
+    }
+}
+
+/*seccion del chef*/
+.chef h2{
+    background-color: var(--rojo);
+    display: inline-block;
+    padding: 1rem 3rem;
+    color: var(--blanco);
+    font-size: 4rem;
+}
+@media(min-width: 768px) {
+    .contenido-chef{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.texto-chef, .imagen-chef{
+    flex: 0 0 calc(50% - 1rem);
+}
+.texto-chef h3{
+    font-size: 3rem;
+
+}
+.texto-chef p{
+    font-size: 2rem;
+    
+}
+.formulario-contacto{
+    padding-top: 5rem;
+}
+/*formulario contacto*/
+@media(min-width: 768px) {
+    .formulario-contacto{
+        display: flex;
+    }
+}
+.informacion-contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacion-contacto, .formulario{
+    flex: 0 0 calc(50% - 1rem);
+}
+.informacion-contacto{
+    background-color: var(--oscuro);
+    padding: 2rem;
+}
+
+.informacion-contacto h3, .informacion-contacto p, .redes-sociales i{
+    color: var(--blanco);
+}
+.informacion-contacto h3{
+    font-size: 4rem;
+    font-family: var(--titulos);
+}
+
+.informacion-contacto p{
+    font-size: 2.2rem;
+  
+}
+.informacion-contacto i{
+    margin-right: 1rem;
+}
+
+.redes-sociales{
+    font-size: 3rem;
+}
+
+.formulario{
+    padding: 5rem;
+}
+
+.input-formulario label{
+    display: block;
+    font-size: 2rem;
+    font-family: var(--parrafos);
+    margin-bottom: 1.5rem;
+}
+
+.input-formulario input, .input-formulario textarea{
+    width: 100%;
+}
+.input-formulario input, .input-formulario textarea{
+    padding: 1rem 1.6rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    outline: none;
+    font-family: var(--parrafos);
+}
+.input-formulario textarea{
+    height: 20rem;
+    resize:none;
+}
+
+.pie-pagina{
+    margin-top: 5rem;
+    background-color: rgb(29, 25, 25);
+    padding: 5rem;
+}
+@media(min-width:768px){
+    .contenedor-piepagina{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+.info{
+    flex: 0 0 calc(25% - 1rem);
+    margin-bottom: 2rem;
+}
+.info h3, .info p{
+    color: var(--blanco);
+    text-align: center;
+}
+.info h3{
+    font-size: 2.2rem;
+}
+.info p{
+    font-size: 1.8rem;
+}
+
+.redes-pie{
+    text-align: center;
+}
+.info input[type="email"]{
+    font-family: var(--parrafos);
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+}
+
+.info input[type="submit"]{
+    padding: .5rem 2rem;
+    font-size: 1.8rem;
+    border-radius: 0;
+}
+.footer{
+    text-align: center;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+
+/*promo navideña*/
+
+.platillo[data-platillo="promo"] {
+    background-image: url('data:image/jpeg;base64,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'); /* Sustituye 'URL_DE_LA_IMAGEN' con la URL de la imagen */
+    background-size: contain; /* Asegura que la imagen se ajuste completamente dentro del contenedor */
+    background-position: center; /* Centra la imagen dentro del contenedor */
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    border-radius: 15px;
+    border: 5px solid #fff;
+    box-shadow: 0px 4px 10px rgba(20, 17, 17, 0.2);
+    padding: 78px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #121111;
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    min-height: 300px; /* Asegura que el contenedor tenga altura mínima */
+}
+
+.platillo[data-platillo="promo"] h2 {
+    font-size: 1.8rem;
+    margin-top: -18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0c0707;
+    text-shadow: 2px 2px 4px rgba(233, 179, 179, 0.3);
+}
+
+.platillo[data-platillo="promo"] p {
+    
+    margin-top: -1px;
+    line-height: 1.5;
+    color: #000; /* Color negro */
+    font-weight: 900; /* Hace la fuente un poco más gruesa */
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente si lo deseas */
+    
+}
+
+.platillo[data-platillo="promo"] .precio {
+    background: linear-gradient(135deg, #F4C2C2, #FF6F61); /* Fondo navideño con gradiente */
+    color: #2c2a29; /* Color de texto oscuro para mejor contraste */
+    border-radius: 55px;
+    padding: 6; /* Aumentamos un poco el padding para dar más espacio */
+    font-weight: bold;
+    font-size: 1.2rem; /* Aumentamos el tamaño de la fuente */
+    position: absolute; /* Usamos posición absoluta */
+    bottom: 1px; /* Alineamos al fondo */
+    right: 5px; /* Alineamos al lado derecho */
+    text-transform: uppercase; /* Hacemos el texto en mayúsculas */
+    letter-spacing: 1.5px; /* Espaciado de letras más elegante */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2), 0px 0px 30px rgba(255, 255, 255, 0.3); /* Sombra más suave */
+    border: 3px solid #fff; /* Borde blanco para resaltar */
+    background-image: url('https://example.com/snowflakes.png'); /* Imagen de copos de nieve como fondo opcional */
+    background-size: cover; /* Asegura que la imagen cubra el área del fondo */
+    background-position: center; /* Centra la imagen */
+    animation: glow 1.5s ease-in-out infinite alternate; /* Animación para dar un toque de brillo */
+    width: auto; /* Ancho automático */
+    text-align: center; /* Centra el texto */
+}
+
+/* Animación de brillo suave */
+@keyframes glow {
+    0% {
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2), 0px 0px 30px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2), 0px 0px 30px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+
+
+.platillo[data-platillo="promo"] img {
+    width: 59%;
+    border-radius: 10px;
+    margin: 10px;
+    border: 3px solid #201717;
+    box-shadow: 0 2px 6px rgba(28, 26, 26, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.platillo[data-platillo="promo"] img:hover {
+    transform: scale(1.05);
+}
+
+.platillo[data-platillo="promo"] .imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.platillo[data-platillo="promo"]:before {
+    content: "🎄 Promoción Navideña 🎅";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #F4C2C2;
+    color: #fff;
+    padding: 13px 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 0 0 0 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.platillo[data-platillo="promo"]:after {
+    content: "❄️ Oferta Especial ❄️";
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    background: #F4C2C2;
+    color: #fefcfd;
+    padding: 20px 25px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    border-radius: 20px 0 0 0;
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo específico para el botón de "Promos Navideñas" */
+.promo {
+    background-color: #e94242; /* Verde navideño */
+    color: #fff; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.5rem; /* Tamaño de fuente agradable */
+    padding: 12px 20px; /* Espaciado interno */
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    text-transform: uppercase; /* Mayúsculas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Efectos al pasar el ratón sobre el botón */
+.promo:hover {
+    background-color: #f0434c; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Crecimiento del botón */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+/* Efecto al hacer clic en el botón */
+.promo:active {
+    background-color: #0e3b1e; /* Color más oscuro al hacer clic */
+    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.3); /* Efecto de presión */
+}
+
+/* Añadir un detalle navideño en el botón de "Promos Navideñas" */
+.promo::before {
+    content: '🎄'; /* Árbol de Navidad */
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    font-size: 1.4rem; /* Tamaño del icono */
+}
+
+
+
+
